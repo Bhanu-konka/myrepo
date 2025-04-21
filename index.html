@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+        }
+        ul {
+            text-align: center;
+            list-style: none;
+            padding: 0;
+        }
+        ul li {
+            display: inline-block;
+            margin: 10px;
+        }
+        ul li a {
+            text-decoration: none;
+            font-size: 20px;
+            padding: 15px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        ul li a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Stock Management System</h1>
+    <ul>
+        <li><a href="{{ url_for('add_stock') }}">Add Stock</a></li>
+        <li><a href="{{ url_for('sell_product') }}">Sell Product</a></li>
+        <li><a href="{{ url_for('view_transactions') }}">View Transactions</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sell Product</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f4f7;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .bill-box {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 2px solid #4CAF50;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .bill-box p {
+            font-size: 16px;
+            margin: 6px 0;
+        }
+
+        .bill-box p strong {
+            color: #333;
+        }
+
+        .success-msg {
+            color: green;
+            text-align: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sell a Product</h1>
+    <form method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" required>
+
+        <label for="number">Contact Number:</label>
+        <input type="text" name="number" required>
+
+        <label for="text">Email:</label>
+        <input type="email" name="email" required>
+
+        <label for="location">Location:</label>
+        <input type="text" name="location" required>
+
+        <label for="stock_id">Stock ID:</label>
+        <input type="number" name="stock_id" required>
+
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" required>
+
+        <input type="submit" value="Sell">
+    </form>
+
+    {% if bill %}
+        <div class="bill-box">
+            <h2>🧾 Product Bill</h2>
+            <p><strong>Product Name:</strong> {{ bill.stock_name }}</p>
+            <p><strong>Stock ID:</strong> {{ bill.stock_id }}</p>
+            <p><strong>Price per Unit:</strong> ₹{{ bill.stock_price }}</p>
+            <p><strong>Quantity:</strong> {{ bill.quantity }}</p>
+            <p><strong>Total Cost:</strong> ₹{{ bill.total_cost }}</p>
+            <p class="success-msg">✅ Transaction completed successfully!</p>
+        </div>
+    {% endif %}
+</body>
+</html>
